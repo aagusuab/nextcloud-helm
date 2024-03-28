@@ -4628,18 +4628,18 @@ spec:
               - /bin/calico-node
               - -felix-live
               - -bird-live
-            periodSeconds: 10
+            periodSeconds: 30
             initialDelaySeconds: 10
             failureThreshold: 6
-            timeoutSeconds: 10
+            timeoutSeconds: 180
           readinessProbe:
             exec:
               command:
               - /bin/calico-node
               - -felix-ready
               - -bird-ready
-            periodSeconds: 10
-            timeoutSeconds: 10
+            periodSeconds: 30
+            timeoutSeconds: 180
           volumeMounts:
             # For maintaining CNI plugin API credentials.
             - mountPath: /host/etc/cni/net.d
